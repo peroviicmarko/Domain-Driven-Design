@@ -14,11 +14,13 @@
     <None Remove="DependencyContainer.cs~RFfcc980.TMP" />
     <None Remove="Helpers\DateHelper.cs~RF13e429.TMP" />
     <None Remove="Helpers\FileSystem.cs~RF16325f.TMP" />
+    <None Remove="Scheduler\Jobs\StorageManagerJob.cs~RFa7fa51.TMP" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Quartz" Version="3.5.0" />
   </ItemGroup>
 
   <ItemGroup>

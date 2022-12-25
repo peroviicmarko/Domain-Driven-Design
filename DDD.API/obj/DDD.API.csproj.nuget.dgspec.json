@@ -72,6 +72,14 @@
               "target": "Package",
               "version": "[6.25.1, )"
             },
+            "Quartz.AspNetCore": {
+              "target": "Package",
+              "version": "[3.5.0, )"
+            },
+            "Quartz.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.5.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -147,6 +155,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.0, )"
+            },
+            "XAct.Core.PCL": {
+              "target": "Package",
+              "version": "[0.0.5014, )"
             }
           },
           "imports": [
@@ -358,6 +370,10 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.5.0, )"
             }
           },
           "imports": [

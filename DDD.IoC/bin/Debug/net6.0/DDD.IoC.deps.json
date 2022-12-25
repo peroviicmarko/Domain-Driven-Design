@@ -12,7 +12,8 @@
           "DDD.Application": "1.0.0",
           "DDD.Data": "1.0.0",
           "DDD.Domain": "1.0.0",
-          "Microsoft.Extensions.DependencyInjection": "7.0.0"
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Quartz": "3.5.0"
         },
         "runtime": {
           "DDD.IoC.dll": {}
@@ -72,6 +73,14 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.6.0.0",
             "fileVersion": "1.600.22.20503"
+          }
+        }
+      },
+      "CommonServiceLocator/1.3.0": {
+        "runtime": {
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {
+            "assemblyVersion": "1.3.0.0",
+            "fileVersion": "1.3.0.0"
           }
         }
       },
@@ -423,6 +432,19 @@
           }
         }
       },
+      "Quartz/3.5.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "System.Configuration.ConfigurationManager": "5.0.0",
+          "System.Diagnostics.DiagnosticSource": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Quartz.dll": {
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.0.0"
+          }
+        }
+      },
       "System.Buffers/4.5.1": {},
       "System.Configuration.ConfigurationManager/5.0.0": {
         "dependencies": {
@@ -637,10 +659,22 @@
           }
         }
       },
+      "XAct.Core.PCL/0.0.5014": {
+        "dependencies": {
+          "CommonServiceLocator": "1.3.0"
+        },
+        "runtime": {
+          "lib/portable-win+net45+sl50+wp80/XAct.Core.PCL.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "0.0.5014.0"
+          }
+        }
+      },
       "DDD.Application/1.0.0": {
         "dependencies": {
           "AutoMapper": "12.0.0",
-          "DDD.Domain": "1.0.0"
+          "DDD.Domain": "1.0.0",
+          "XAct.Core.PCL": "0.0.5014"
         },
         "runtime": {
           "DDD.Application.dll": {}
@@ -696,6 +730,13 @@
       "sha512": "sha512-EycyMsb6rD2PK9P0SyibFfEhvWWttdrYhyPF4f41uzdB/44yQlV+2Wehxyg489Rj6gbPvSPgbKq0xsHJBhipZA==",
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
+    },
+    "CommonServiceLocator/1.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fbjO0SNwbOFPdwVfyqv+B7gIJ2CVBOFPKqn1mDDECK7KER8jFaOdcvroFYoAHa0ktPbxi5s+15qOLnA96f8GSA==",
+      "path": "commonservicelocator/1.3.0",
+      "hashPath": "commonservicelocator.1.3.0.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
@@ -914,6 +955,13 @@
       "path": "microsoft.win32.systemevents/5.0.0",
       "hashPath": "microsoft.win32.systemevents.5.0.0.nupkg.sha512"
     },
+    "Quartz/3.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tgWAByEvwWC/CE4VXfrMgt7h5FXdFKIl9Sf5X/0d4yq1rsvSgiVbcAPdFUFAgIOOTcLTtRXp1rXBGqHukIWAgQ==",
+      "path": "quartz/3.5.0",
+      "hashPath": "quartz.3.5.0.nupkg.sha512"
+    },
     "System.Buffers/4.5.1": {
       "type": "package",
       "serviceable": true,
@@ -1116,6 +1164,13 @@
       "sha512": "sha512-c1ho9WU9ZxMZawML+ssPKZfdnrg/OjR3pe0m9v8230z3acqphwvPJqzAkH54xRYm5ntZHGG1EPP3sux9H3qSPg==",
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
+    },
+    "XAct.Core.PCL/0.0.5014": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-r0rX5Dzr0mfUp8FtVnxXlv5w+cXhz6tHfQ79lf6naLB92J+h2wkGw0q6CfOa2FiveN2ahSflf6LB2G1cOx43AQ==",
+      "path": "xact.core.pcl/0.0.5014",
+      "hashPath": "xact.core.pcl.0.0.5014.nupkg.sha512"
     },
     "DDD.Application/1.0.0": {
       "type": "project",

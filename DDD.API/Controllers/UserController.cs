@@ -7,6 +7,7 @@ using DDD.Application.DTOs.User.JWT;
 using DDD.Application.DTOs.User.Request;
 using DDD.Application.DTOs.User.Response;
 using DDD.Application.Interfaces;
+using DDD.Application.Utilities;
 using DDD.IoC.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -49,12 +50,13 @@ namespace DDD.API.Controllers
                 throw new APIException(Constants.InvalidEmail, StatusCodes.Status400BadRequest);
             }
 
+            request.Password = Security.HashPasswodUsingSHA256(request.Password);
             UserDto userDto = ObjectMapper.CreateAccountMap(request);
 
             var user = await _userService.CreateUserAsync(userDto);
-            await _userService.SaveChangesAsync();
+            int rowsAffected = await _userService.SaveChangesAsync();
 
-            if (user != null)
+            if (user != null && rowsAffected == 1)
             {
                 TokenBuilder.SignInKey = _configuration["AppSettings:SecretKey"];
 

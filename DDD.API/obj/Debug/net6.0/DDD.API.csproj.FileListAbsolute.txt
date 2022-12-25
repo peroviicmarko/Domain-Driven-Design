@@ -96,3 +96,9 @@ D:\.NET\DDD\DDD.API\bin\Debug\net6.0\System.CodeDom.dll
 D:\.NET\DDD\DDD.API\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 D:\.NET\DDD\DDD.API\bin\Debug\net6.0\System.Text.Json.dll
 D:\.NET\DDD\DDD.API\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+D:\.NET\DDD\DDD.API\bin\Debug\net6.0\Quartz.dll
+D:\.NET\DDD\DDD.API\bin\Debug\net6.0\Quartz.AspNetCore.dll
+D:\.NET\DDD\DDD.API\bin\Debug\net6.0\Quartz.Extensions.DependencyInjection.dll
+D:\.NET\DDD\DDD.API\bin\Debug\net6.0\Quartz.Extensions.Hosting.dll
+D:\.NET\DDD\DDD.API\bin\Debug\net6.0\Microsoft.Practices.ServiceLocation.dll
+D:\.NET\DDD\DDD.API\bin\Debug\net6.0\XAct.Core.PCL.dll

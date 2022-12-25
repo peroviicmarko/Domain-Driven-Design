@@ -3,8 +3,11 @@ using DDD.Application.Common;
 using DDD.Application.Config;
 using DDD.Data.Context;
 using DDD.IoC;
+using DDD.IoC.Scheduler.Jobs;
+using DDD.IoC.Scheduler.Listeners;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Quartz;   
 using System.Text;
 
 internal class Program
@@ -17,7 +20,7 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddHttpContextAccessor();
-        builder.Services.AddResponseCaching();  
+        builder.Services.AddResponseCaching();
 
         builder.Services.AddResponseCompression(options =>
         {
@@ -68,10 +71,51 @@ internal class Program
             });
         });
 
-        DependencyContainer.RegisterServices(builder.Services);  
+        builder.Services.AddQuartz(options =>
+        {
+            options.UseMicrosoftDependencyInjectionScopedJobFactory();
+            options.UseSimpleTypeLoader();
+            options.UseInMemoryStore();
+
+            options.AddTriggerListener<TriggerListener>();
+            options.AddJobListener<JobListener>();
+            options.AddSchedulerListener<SchedulerListener>();
+       
+            options.UseDefaultThreadPool(options =>
+            {
+                options.MaxConcurrency = 15;
+            });
+
+            JobKey jobKey = new("StorageManagerJob");
+
+            options.AddJob<StorageManagerJob>(options =>
+            {
+                options.WithIdentity(jobKey);
+            });
+
+            options.AddTrigger(options =>
+            {
+                options.ForJob(jobKey)
+                .WithIdentity("StorageManagerJob-trigger")
+                .WithCronSchedule("0 * * ? * *");
+            });
+
+        });
+
+        builder.Services.AddQuartzServer(options =>
+        {
+            options.WaitForJobsToComplete = true;
+        });
+
+        builder.Services.AddQuartzHostedService(options =>
+        {
+            options.WaitForJobsToComplete = true;
+        });
+
+        DependencyContainer.RegisterServices(builder.Services);
 
         var app = builder.Build();
-          
+
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
