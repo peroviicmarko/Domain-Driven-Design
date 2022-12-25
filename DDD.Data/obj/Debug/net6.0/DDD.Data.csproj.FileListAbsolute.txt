@@ -1,0 +1,17 @@
+D:\.NET\DDD\DDD.Data\bin\Debug\net6.0\DDD.Data.deps.json
+D:\.NET\DDD\DDD.Data\bin\Debug\net6.0\DDD.Data.runtimeconfig.json
+D:\.NET\DDD\DDD.Data\bin\Debug\net6.0\DDD.Data.dll
+D:\.NET\DDD\DDD.Data\bin\Debug\net6.0\DDD.Data.pdb
+D:\.NET\DDD\DDD.Data\bin\Debug\net6.0\DDD.Domain.dll
+D:\.NET\DDD\DDD.Data\bin\Debug\net6.0\DDD.Domain.pdb
+D:\.NET\DDD\DDD.Data\obj\Debug\net6.0\DDD.Data.csproj.AssemblyReference.cache
+D:\.NET\DDD\DDD.Data\obj\Debug\net6.0\DDD.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\.NET\DDD\DDD.Data\obj\Debug\net6.0\DDD.Data.AssemblyInfoInputs.cache
+D:\.NET\DDD\DDD.Data\obj\Debug\net6.0\DDD.Data.AssemblyInfo.cs
+D:\.NET\DDD\DDD.Data\obj\Debug\net6.0\DDD.Data.csproj.CoreCompileInputs.cache
+D:\.NET\DDD\DDD.Data\obj\Debug\net6.0\DDD.Data.csproj.CopyComplete
+D:\.NET\DDD\DDD.Data\obj\Debug\net6.0\DDD.Data.dll
+D:\.NET\DDD\DDD.Data\obj\Debug\net6.0\refint\DDD.Data.dll
+D:\.NET\DDD\DDD.Data\obj\Debug\net6.0\DDD.Data.pdb
+D:\.NET\DDD\DDD.Data\obj\Debug\net6.0\DDD.Data.genruntimeconfig.cache
+D:\.NET\DDD\DDD.Data\obj\Debug\net6.0\ref\DDD.Data.dll

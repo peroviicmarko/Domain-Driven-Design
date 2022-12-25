@@ -1,0 +1,15 @@
+D:\.NET\DDD\DDD.Application\bin\Debug\net6.0\DDD.Application.deps.json
+D:\.NET\DDD\DDD.Application\bin\Debug\net6.0\DDD.Application.dll
+D:\.NET\DDD\DDD.Application\bin\Debug\net6.0\DDD.Application.pdb
+D:\.NET\DDD\DDD.Application\bin\Debug\net6.0\DDD.Domain.dll
+D:\.NET\DDD\DDD.Application\bin\Debug\net6.0\DDD.Domain.pdb
+D:\.NET\DDD\DDD.Application\obj\Debug\net6.0\DDD.Application.csproj.AssemblyReference.cache
+D:\.NET\DDD\DDD.Application\obj\Debug\net6.0\DDD.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\.NET\DDD\DDD.Application\obj\Debug\net6.0\DDD.Application.AssemblyInfoInputs.cache
+D:\.NET\DDD\DDD.Application\obj\Debug\net6.0\DDD.Application.AssemblyInfo.cs
+D:\.NET\DDD\DDD.Application\obj\Debug\net6.0\DDD.Application.csproj.CoreCompileInputs.cache
+D:\.NET\DDD\DDD.Application\obj\Debug\net6.0\DDD.Application.csproj.CopyComplete
+D:\.NET\DDD\DDD.Application\obj\Debug\net6.0\DDD.Application.dll
+D:\.NET\DDD\DDD.Application\obj\Debug\net6.0\refint\DDD.Application.dll
+D:\.NET\DDD\DDD.Application\obj\Debug\net6.0\DDD.Application.pdb
+D:\.NET\DDD\DDD.Application\obj\Debug\net6.0\ref\DDD.Application.dll

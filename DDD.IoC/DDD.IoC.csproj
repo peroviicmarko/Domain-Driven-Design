@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Core\Logger.cs~RF3474b.TMP" />
+    <None Remove="Core\Logger.cs~RF45792.TMP" />
+    <None Remove="DependencyContainer.cs~RF14a75a.TMP" />
+    <None Remove="DependencyContainer.cs~RFd77307.TMP" />
+    <None Remove="DependencyContainer.cs~RFfcc980.TMP" />
+    <None Remove="Helpers\DateHelper.cs~RF13e429.TMP" />
+    <None Remove="Helpers\FileSystem.cs~RF16325f.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DDD.Application\DDD.Application.csproj" />
+    <ProjectReference Include="..\DDD.Data\DDD.Data.csproj" />
+    <ProjectReference Include="..\DDD.Domain\DDD.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
