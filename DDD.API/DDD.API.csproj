@@ -10,6 +10,9 @@
     <None Remove="appsettings.json~RFe3c582.TMP" />
     <None Remove="Controllers\UserController.cs~RF135874.TMP" />
     <None Remove="Exceptions\APIException.cs~RF4e018b.TMP" />
+    <None Remove="Helpers\DataValidation.cs~RF7cc894.TMP" />
+    <None Remove="Middleware\RequestLogger.cs~RF6fe2b3.TMP" />
+    <None Remove="Providers\ObjectMapper.cs~RF47d865.TMP" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,10 +26,6 @@
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.25.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Providers\" />
   </ItemGroup>
 
   <ItemGroup>

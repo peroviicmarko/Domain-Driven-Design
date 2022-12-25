@@ -11,6 +11,8 @@
     <None Remove="Interfaces\IGenericRepository.cs~RFdc47a9.TMP" />
     <None Remove="Interfaces\IGenericRepository.cs~RFde46e4.TMP" />
     <None Remove="Interfaces\IGenericRepository.cs~RFf4e5b9.TMP" />
+    <None Remove="Models\User.cs~RF33b2fc.TMP" />
+    <None Remove="Models\User.cs~RF34cefb.TMP" />
     <None Remove="Models\User.cs~RFcb9abd.TMP" />
   </ItemGroup>
 

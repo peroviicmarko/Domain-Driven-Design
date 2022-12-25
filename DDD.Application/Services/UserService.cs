@@ -24,6 +24,7 @@ namespace DDD.Application.Services
             await _userRepository.CreateAsync(user);
         }
 
+
         public async Task DeleteAsync(int id)
         {
            await _userRepository.DeleteAsync(id);
@@ -68,6 +69,25 @@ namespace DDD.Application.Services
 
             _mapper.Map(user, entity);
             return _userRepository.Update(user);
+        }
+
+        public async Task<UserBaseDto> CreateUserAsync(UserDto entity)
+        {
+            var user = _mapper.Map<User>(entity);
+            await _userRepository.CreateAsync(user);
+            entity.Id = user.Id;
+
+            var response = _mapper.Map<User, UserBaseDto>(user);
+            return response;
+        }
+
+        public async Task<bool> IsUsernameTakenAsync(string username)
+        {
+            return await _userRepository.IsUsernameTakenAsync(username);
+        }
+        public async Task<bool> IsEmailTakenAsync(string email)
+        {
+            return await _userRepository.IsEmailTakenAsync(email);
         }
     }
 }

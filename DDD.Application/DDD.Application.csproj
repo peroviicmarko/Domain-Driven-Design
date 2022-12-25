@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Common\Constants.cs~RF4e2ed4.TMP" />
+    <None Remove="Common\Constants.cs~RF4f26d1.TMP" />
+    <None Remove="DTOs\User\Request\CreateAccount.cs~RF472bd9.TMP" />
+    <None Remove="DTOs\User\Response\AccountCreatedResponse.cs~RF505a21.TMP" />
+    <None Remove="Interfaces\IUserService.cs~RF447871.TMP" />
     <None Remove="Profiles\MappingProfiles.cs~RFd6e2fc.TMP" />
   </ItemGroup>
 

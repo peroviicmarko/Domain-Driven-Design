@@ -16,6 +16,13 @@ internal class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddResponseCaching();  
+
+        builder.Services.AddResponseCompression(options =>
+        {
+            options.EnableForHttps = true;
+        });
 
         var appSettingsSection = builder.Configuration.GetSection("AppSettings");
         var appSettings = appSettingsSection.Get<AppSettings>();
@@ -75,6 +82,9 @@ internal class Program
         app.UseHsts();
         app.UseCors("CorsPolicy");
 
+        app.UseResponseCaching();
+        app.UseResponseCompression();
+
         app.UseStaticFiles();
 
         app.UseAuthorization();
@@ -82,6 +92,11 @@ internal class Program
 
         app.UseRouting();
         app.UsePathBase(new PathString("/api"));
+        app.Use(async (context, next) =>
+        {
+            RequestLogger.HttpLogger(context);
+            await next.Invoke();
+        });
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
