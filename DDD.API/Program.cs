@@ -3,15 +3,19 @@ using DDD.Application.Common;
 using DDD.Application.Config;
 using DDD.Data.Context;
 using DDD.IoC;
+using DDD.IoC.Scheduler.Factory;
 using DDD.IoC.Scheduler.Jobs;
 using DDD.IoC.Scheduler.Listeners;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Quartz;   
+using Quartz;
+using Quartz.Impl;
+using System.Collections.Specialized;
 using System.Text;
 
 internal class Program
 {
+    public static IScheduler _scheduler { get; set; }
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
@@ -77,6 +81,18 @@ internal class Program
             options.UseSimpleTypeLoader();
             options.UseInMemoryStore();
 
+            NameValueCollection props = new()
+            {
+                {
+                    "quartz.serializer.type", "binary"
+                },
+            };
+
+            StdSchedulerFactory factory = new(props);
+            IScheduler scheduler = factory.GetScheduler().Result;
+
+            _scheduler = scheduler;
+            
             options.AddTriggerListener<TriggerListener>();
             options.AddJobListener<JobListener>();
             options.AddSchedulerListener<SchedulerListener>();
@@ -112,7 +128,12 @@ internal class Program
             options.WaitForJobsToComplete = true;
         });
 
+        IServiceProvider serviceProvider = builder.Services.BuildServiceProvider();
+        _scheduler.JobFactory = new JobFactory(serviceProvider);
+        _scheduler.Start().Wait();
+
         DependencyContainer.RegisterServices(builder.Services);
+
 
         var app = builder.Build();
 
