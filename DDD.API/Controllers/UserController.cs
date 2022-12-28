@@ -11,6 +11,8 @@ using DDD.Application.Utilities;
 using DDD.IoC.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using XAct.Security;
+using AllowAnonymousAttribute = Microsoft.AspNetCore.Authorization.AllowAnonymousAttribute;
 
 namespace DDD.API.Controllers
 {
@@ -26,6 +28,7 @@ namespace DDD.API.Controllers
             _userService = userService;
             _configuration = configuration;
         }
+
 
         [HttpPost("create-account")]
         [AllowAnonymous]

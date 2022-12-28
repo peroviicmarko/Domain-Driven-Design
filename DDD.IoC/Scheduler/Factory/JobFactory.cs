@@ -8,7 +8,7 @@ namespace DDD.IoC.Scheduler.Factory
     public class JobFactory : SimpleJobFactory
     {
 
-        private IServiceProvider _serviceProvider;
+        IServiceProvider _serviceProvider;
 
         public JobFactory(IServiceProvider serviceProvider)
         {

@@ -5,6 +5,7 @@ using DDD.Data.Context;
 using DDD.IoC;
 using DDD.IoC.Scheduler.Factory;
 using DDD.IoC.Scheduler.Jobs;
+using DDD.IoC.Scheduler.JobScheduler;
 using DDD.IoC.Scheduler.Listeners;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -15,7 +16,8 @@ using System.Text;
 
 internal class Program
 {
-    public static IScheduler _scheduler { get; set; }
+    public static IScheduler _scheduler;
+    public static JobScheduler JobScheduler;
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
@@ -80,60 +82,46 @@ internal class Program
             options.UseMicrosoftDependencyInjectionScopedJobFactory();
             options.UseSimpleTypeLoader();
             options.UseInMemoryStore();
+            options.UseJobFactory<JobFactory>(); 
 
-            NameValueCollection props = new()
-            {
-                {
-                    "quartz.serializer.type", "binary"
-                },
-            };
-
-            StdSchedulerFactory factory = new(props);
-            IScheduler scheduler = factory.GetScheduler().Result;
-
-            _scheduler = scheduler;
-            
-            options.AddTriggerListener<TriggerListener>();
-            options.AddJobListener<JobListener>();
-            options.AddSchedulerListener<SchedulerListener>();
-       
             options.UseDefaultThreadPool(options =>
             {
                 options.MaxConcurrency = 15;
-            });
-
-            JobKey jobKey = new("StorageManagerJob");
-
-            options.AddJob<StorageManagerJob>(options =>
-            {
-                options.WithIdentity(jobKey);
-            });
-
-            options.AddTrigger(options =>
-            {
-                options.ForJob(jobKey)
-                .WithIdentity("StorageManagerJob-trigger")
-                .WithCronSchedule("0 * * ? * *");
             });
 
         });
 
         builder.Services.AddQuartzServer(options =>
         {
+            options.AwaitApplicationStarted = true;
             options.WaitForJobsToComplete = true;
         });
 
         builder.Services.AddQuartzHostedService(options =>
         {
+            options.AwaitApplicationStarted = true;
             options.WaitForJobsToComplete = true;
         });
 
-        IServiceProvider serviceProvider = builder.Services.BuildServiceProvider();
-        _scheduler.JobFactory = new JobFactory(serviceProvider);
-        _scheduler.Start().Wait();
-
         DependencyContainer.RegisterServices(builder.Services);
+        builder.Services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
+        builder.Services.AddScoped<StorageManagerJob>();
 
+        NameValueCollection props = new()
+            {
+                {
+                    "quartz.serializer.type", "binary"
+                },
+            };
+
+        StdSchedulerFactory factory = new(props);
+        _scheduler = factory.GetScheduler().Result;
+
+        _scheduler.ListenerManager.AddTriggerListener(new TriggerListener());
+        _scheduler.ListenerManager.AddJobListener(new JobListener());
+        _scheduler.ListenerManager.AddSchedulerListener(new SchedulerListener());
+
+        JobScheduler = new JobScheduler(_scheduler);
 
         var app = builder.Build();
 
@@ -166,6 +154,10 @@ internal class Program
         {
             endpoints.MapControllers();
         });
+
+        IServiceProvider serviceProvider = builder.Services.BuildServiceProvider();
+        _scheduler.JobFactory = new JobFactory(serviceProvider);
+        _scheduler.Start().Wait();
 
         app.Run();
     }

@@ -14,6 +14,13 @@
     <None Remove="DependencyContainer.cs~RFfcc980.TMP" />
     <None Remove="Helpers\DateHelper.cs~RF13e429.TMP" />
     <None Remove="Helpers\FileSystem.cs~RF16325f.TMP" />
+    <None Remove="Scheduler\JobScheduler\JobBuilder.cs~RF13e523.TMP" />
+    <None Remove="Scheduler\JobScheduler\JobBuilder.cs~RF15e7c9.TMP" />
+    <None Remove="Scheduler\JobScheduler\JobBuilder.cs~RF280378.TMP" />
+    <None Remove="Scheduler\JobScheduler\JobScheduler.cs~RFf1bea8.TMP" />
+    <None Remove="Scheduler\JobScheduler\JobScheduler.cs~RFf246b4.TMP" />
+    <None Remove="Scheduler\JobScheduler\JobScheduler.cs~RFf373ab.TMP" />
+    <None Remove="Scheduler\JobScheduler\JobScheduler.cs~RFf8e72d.TMP" />
     <None Remove="Scheduler\Jobs\StorageManagerJob.cs~RFa7fa51.TMP" />
   </ItemGroup>
 

@@ -1,0 +1,6 @@
+28.12.2022 16:02:00.164 - SchedulerError: Job DEFAULT.StorageManagerJob threw an exception.
+28.12.2022 16:02:00.164 - Job threw an unhandled exception.
+28.12.2022 16:03:00.071 - SchedulerError: Job DEFAULT.StorageManagerJob threw an exception.
+28.12.2022 16:04:00.082 - SchedulerError: Job DEFAULT.StorageManagerJob threw an exception.
+28.12.2022 16:04:00.082 - Job threw an unhandled exception.
+28.12.2022 16:39:44.765 - The job (16226364-d096-427f-97a5-7320d8668e1b.16226364-d096-427f-97a5-7320d8668e1b) referenced by the trigger does not exist.

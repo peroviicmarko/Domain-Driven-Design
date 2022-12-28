@@ -19,7 +19,7 @@ namespace DDD.IoC.Scheduler.Listeners
 
         public async Task JobWasExecuted(IJobExecutionContext context, JobExecutionException? jobException, CancellationToken cancellationToken = default)
         {
-            Logger.Info($"Job Executed: {context.JobDetail.Key.Name}");
+            Logger.Custom($"Job Executed: {context.JobDetail.Key.Name}", "jobs");
         }
     }
 }
