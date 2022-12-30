@@ -11,8 +11,6 @@ using DDD.Application.Utilities;
 using DDD.IoC.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using XAct.Security;
-using AllowAnonymousAttribute = Microsoft.AspNetCore.Authorization.AllowAnonymousAttribute;
 
 namespace DDD.API.Controllers
 {

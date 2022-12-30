@@ -7,6 +7,7 @@ using DDD.IoC.Scheduler.Factory;
 using DDD.IoC.Scheduler.Jobs;
 using DDD.IoC.Scheduler.JobScheduler;
 using DDD.IoC.Scheduler.Listeners;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Quartz;
@@ -22,7 +23,16 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddControllers();
+        builder.Services.AddControllers(options =>
+        {
+            options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes= true;
+        });
+
+        builder.Services.Configure<ApiBehaviorOptions>(options =>
+        {
+            options.SuppressModelStateInvalidFilter = true;
+        });
+
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddHttpContextAccessor();
@@ -82,7 +92,7 @@ internal class Program
             options.UseMicrosoftDependencyInjectionScopedJobFactory();
             options.UseSimpleTypeLoader();
             options.UseInMemoryStore();
-            options.UseJobFactory<JobFactory>(); 
+            options.UseJobFactory<JobFactory>();
 
             options.UseDefaultThreadPool(options =>
             {
@@ -108,11 +118,11 @@ internal class Program
         builder.Services.AddScoped<StorageManagerJob>();
 
         NameValueCollection props = new()
-            {
+        {
                 {
                     "quartz.serializer.type", "binary"
                 },
-            };
+        };
 
         StdSchedulerFactory factory = new(props);
         _scheduler = factory.GetScheduler().Result;
