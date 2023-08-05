@@ -1,5 +1,0 @@
-27.12.2022 10:04:01.924 - Job threw an unhandled exception.
-27.12.2022 10:09:00.075 - Job threw an unhandled exception.
-27.12.2022 10:10:00.080 - SchedulerError: Job DEFAULT.StorageManagerJob threw an exception.
-27.12.2022 10:11:00.073 - Job threw an unhandled exception.
-27.12.2022 10:11:00.073 - SchedulerError: Job DEFAULT.StorageManagerJob threw an exception.

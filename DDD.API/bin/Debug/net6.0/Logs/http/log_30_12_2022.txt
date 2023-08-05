@@ -1,5 +1,0 @@
-30.12.2022 17:49:24.317 - POST /user/create-account ip:[::1] port:[50144]
-30.12.2022 17:49:38.184 - POST /user/create-account ip:[::1] port:[50144]
-30.12.2022 17:49:42.823 - POST /user/create-account ip:[::1] port:[50144]
-30.12.2022 17:49:50.465 - POST /user/create-account ip:[::1] port:[50144]
-30.12.2022 17:49:56.446 - POST /user/create-account ip:[::1] port:[50144]
